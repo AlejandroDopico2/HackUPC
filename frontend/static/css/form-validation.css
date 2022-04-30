@@ -1,0 +1,72 @@
+.container {
+  max-width: 960px;
+}
+.cover-container {
+  max-width: 42em;
+}
+.masthead {
+  margin-bottom: 2rem;
+}
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgb(0, 0, 0);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active  {
+  color: #000000;
+  border-bottom-color: #000000;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
+
+
+.border-top { border-top: 1px solid #fff; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top-gray { border-top-color: #adb5bd; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.lh-condensed { line-height: 1.25; }
+
+input[type=file]::file-selector-button {
+  border: 2px solid rgba(214, 214, 232, 0.75);
+  padding: .2em .4em;
+  border-radius: .2em;
+  background-color: #adb5bd;
+  transition: 1s;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #598686;
+  border: 2px solid #598686;
+}
+
+.boton{
+  padding: 20px;
+  width: 30%;
+  margin: 0 auto;
+}

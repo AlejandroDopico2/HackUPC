@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MA3</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/form-validation.css" rel="stylesheet">
+  </head>
+
+
+  <body class="bg-light">
+
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand">MA3</h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about_us.html">About us</a>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class="container">
+
+
+
+      <div class="py-5 text-center">
+        <h2>Upload pictures</h2>
+        <p class="lead">To estimate the value of your home we need you to provide us with some information. In the first place, we need four photos of the house: one of the bathroom, another of the kitchen, another of a room and finally one of the front of the house. Secondly, we need you to specify the number of bathrooms and rooms, the square meters and the zip code where the building is located.</p>
+      </div>
+
+      <div class="py-5 text-center">
+
+        <form method="post" enctype="multipart/form-data">
+          <input type="file" name="myfiles" multiple  class="btn btn-lg btn-secondary">
+        </form>
+      </div>
+
+          <h4 class="mb-3">Real state data</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="bathroom">Number of bathrooms</label>
+                <input type="number" class="form-control" id="bathroom" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid number is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="bedrooms">Number of bedrooms</label>
+                <input type="number" class="form-control" id="bedrooms" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid number is required.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="meters">Number of square meters</label>
+              <input type="number" class="form-control" id="meters" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid number is required.
+              </div>
+            </div>
+
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
+
+
+            <div class ="boton">
+                <a href="results.html" class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: grey; border-color: grey" >Continue</a>
+            </div>
+          </form>
+        </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+  </div>
+  </body>
+</html>
