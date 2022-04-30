@@ -43,8 +43,8 @@
 
       <div class="py-5 text-center">
 
-        <form method="post" enctype="multipart/form-data">
-          <input type="file" name="myfiles" multiple  class="btn btn-lg btn-secondary">
+        <form id="form" method="post" enctype="multipart/form-data">
+          <input id="file" type="file" name="myfiles" multiple  class="btn btn-lg btn-secondary">
         </form>
       </div>
 
@@ -86,7 +86,7 @@
 
 
             <div class ="boton">
-                <a href="./results" class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: grey; border-color: grey" >Continue</a>
+                <a href="./results" class="submit-btn" type="submit" style="background-color: grey; border-color: grey" >Continue</a>
             </div>
           </form>
         </div>
@@ -96,5 +96,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
   </div>
+
+  <script src = "../static/js/info.js">
+
+  </script>
   </body>
 </html>
