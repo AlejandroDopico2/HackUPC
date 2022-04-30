@@ -55,3 +55,7 @@ def root():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
         'favicon.ico',mimetype='image/vnd.microsoft.icon')
+
+@app.route('/about_us')
+def aboutUs():
+    return render_template('about_us.html')
