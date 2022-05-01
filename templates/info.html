@@ -2,7 +2,6 @@
 <html lang="en">
 
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -43,24 +42,39 @@
 
       <div class="py-5 text-center">
 
-        <form id="form" method="post" enctype="multipart/form-data">
-          <input id="file" type="file" name="myfiles" multiple  class="btn btn-lg btn-secondary">
-        </form>
+        
       </div>
 
           <h4 class="mb-3">Real state data</h4>
-          <form class="needs-validation" novalidate>
+       
+          <form id="form" action="" method="post">
+            <div class="row">
+              <label for="image1">Image 1</label>
+              <input type=" string" class="form-control" id="image1" name="image1" value="">
+            </div>
+            <div class="row">
+              <label for="image2">Image 2</label>
+              <input type=" string" class="form-control" id="image2" name="image2" value="">
+            </div>
+            <div class="row">
+              <label for="image1">Image 3</label>
+              <input type=" string" class="form-control" id="image3" name="image3" value="">
+            </div>
+            <div class="row">
+              <label for="image1">Image 4</label>
+              <input type=" string" class="form-control" id="image4" name="image4" value="">
+            </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="bathroom">Number of bathrooms</label>
-                <input type="number" class="form-control" id="bathroom" placeholder="" value="" required>
+                <input type="number" class="form-control" id="bathroom" name="bathroom" value="" required min="0">
                 <div class="invalid-feedback">
                   Valid number is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="bedrooms">Number of bedrooms</label>
-                <input type="number" class="form-control" id="bedrooms" placeholder="" value="" required>
+                <input type="number" class="form-control" id="bedrooms" name="bedrooms" value="" required min="0">
                 <div class="invalid-feedback">
                   Valid number is required.
                 </div>
@@ -69,7 +83,7 @@
             <div class="row">
             <div class="col-md-6 mb-3">
               <label for="meters">Number of square meters</label>
-              <input type="number" class="form-control" id="meters" placeholder="" value="" required>
+              <input type="number" class="form-control" id="meters" name="meters" value="" required min="0">
               <div class="invalid-feedback">
                 Valid number is required.
               </div>
@@ -77,16 +91,15 @@
 
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" class="form-control" id="zip" name="zip" required pattern="\d{5}">
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
               </div>
             </div>
 
-
             <div class ="boton">
-                <a href="./results" class="submit-btn" type="submit" style="background-color: grey; border-color: grey" >Continue</a>
+                <button  class="submit-btn" type="submit" style="background-color: grey; border-color: grey" href="results.html" >Continue</button>
             </div>
           </form>
         </div>
