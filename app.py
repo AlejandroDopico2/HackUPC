@@ -1,4 +1,5 @@
 from copyreg import pickle
+from email.mime import image
 from flask import (
     Flask,
     flash,
@@ -12,8 +13,10 @@ from flask import (
 )
 import os
 from flask_cors import CORS
+from numpy import imag
 from model import *
 import pickle
+from werkzeug.datastructures import ImmutableMultiDict
 
 app = Flask(__name__)
 app.debug = True
@@ -23,25 +26,30 @@ app.model = ScoreImage() #Aquí ponemos una instancia de nuestro modelo
 app.decisionTree= pickle.load(open('model.pkl', 'rb'))
 
 
-@app.route("/results", methods=['GET', 'POST'])
+@app.route("/results", methods=['POST'])
 def upload():
-    if request.method == 'POST':
-        kitchen = request.form['meters']
-        bathroom = request.form['bathroom']
-        frontal = request.form['zip']
-        bedroom = request.form['bedrooms']
+    # data = request.form.to_dict()
+    # data = dict(request.form)
+    data = request.get_json()
 
 
-        #Ejecutamos nuestro modelo para ver si se pasan todas las fotos
-        try:
-            print("Aqui entra")
-            data = app.model.getScoreImages(kitchen, bathroom, frontal, bedroom)
-            output = app.decisionTree.predict(data)
-            return redirect(url_for('results'), score = format(output)) #Si va fino
-        except Exception as e:
-            print(e)
-            flash('Error al conectarse a la base de datos.')
-    return redirect(url_for('results')) #Si no hacemos algo bien 
+    kitchen = data['meters']
+    bathroom = data['bathroom']
+    frontal = data['zip']
+    bedroom = data['bedrooms']
+    images = data['images']
+
+
+    #Ejecutamos nuestro modelo para ver si se pasan todas las fotos
+    try:
+        print("Aqui entra")
+        data = app.model.getScoreImages(images[0], images[1], images[2], images[3])
+        print(data)
+        output = app.decisionTree.predict(data)
+        return redirect(url_for('results'), score = format(output)) #Si va fino
+    except Exception as e:
+        print(e)
+        flash('Error al conectarse a la base de datos.')
 
 @app.route('/info')
 def results():
