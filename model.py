@@ -1,8 +1,10 @@
+from time import sleep
 from turtle import st
-from numpy import positive
+import numpy as np
 import requests
 import json
 import gettext
+
 
 import io
 import base64
@@ -19,32 +21,29 @@ class ScoreImage:
         self.frontal = None
 
     def getScore(imageBase64):
-
         payload = {
             # Add your client key
             'client_key': CLIENT_KEY,
             'model_id': 're_condition',
             # Add the image URL you want to process
-            'image_base64': imageBase64
+            'image_url': imageBase64
         }
 
         response = requests.get(URL, params=payload)
-
         # The response is formatted in JSON
         json_response = response.json()
-        # print(json_response)
+        print(json_response)
+
         return json_response["response"]["solutions"]["re_condition"]["score"]
 
-    def getScoreImages(self, kitchen_url, bathroom_url, bedroom_url, frontal_url):
-        print("getScoreImages")
+    def getScoreImages(self, array):
         result = []
         # print(newImage)
-        a = ScoreImage.getScore(kitchen_url)
-        print("getScore",a)
-        result.append(a)
-        result.append(ScoreImage.getScore(bathroom_url))
-        result.append(ScoreImage.getScore(bedroom_url))
-        result.append(ScoreImage.getScore(frontal_url))
+        for img in array:
+            result.append(ScoreImage.getScore(img))
+            sleep(0.5)
+       
         print("Ahi va el result", result)
         return result
         
+    

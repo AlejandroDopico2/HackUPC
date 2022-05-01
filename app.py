@@ -1,4 +1,5 @@
 from copyreg import pickle
+from curses import meta
 from email.mime import image
 from flask import (
     Flask,
@@ -14,6 +15,7 @@ from flask import (
 import os
 from flask_cors import CORS
 from numpy import imag
+from psycopg2 import paramstyle
 from model import *
 import pickle
 from werkzeug.datastructures import ImmutableMultiDict
@@ -33,26 +35,41 @@ def upload():
     data = request.get_json()
 
 
-    kitchen = data['meters']
+    meters = data['meters']
     bathroom = data['bathroom']
-    frontal = data['zip']
+    zipCode = data['zip']
     bedroom = data['bedrooms']
-    images = data['images']
-
+    image1 = data["image1"]
+    image2 = data["image2"]
+    image3 = data["image3"]
+    image4 = data["image4"]
 
     #Ejecutamos nuestro modelo para ver si se pasan todas las fotos
     try:
-        print("Aqui entra")
-        data = app.model.getScoreImages(images[0], images[1], images[2], images[3])
-        print(data)
-        output = app.decisionTree.predict(data)
-        return redirect(url_for('results'), score = format(output)) #Si va fino
+        scores = app.model.getScoreImages([image1, image2, image3, image4])
+        parameters = [bedroom, bathroom, meters, zipCode]
+        # decisionTreeInput = scores 
+        # np.append(decisionTreeInput, bedroom)
+        # np.append(decisionTreeInput, bathroom)
+        # np.append(decisionTreeInput, meters)
+        # np.append(decisionTreeInput, zipCode)
+
+        decisionTreeInput = np.array(scores + parameters)
+
+        print(decisionTreeInput)
+
+        output = app.decisionTree.predict(decisionTreeInput.reshape(1, -1))
+        print(output) # Hasta aqui va bien
+        
+        # return redirect(url_for('results')) #Si va fino
+        return str(output[0])
     except Exception as e:
         print(e)
+        return "error: " + e
         flash('Error al conectarse a la base de datos.')
 
 @app.route('/info')
-def results():
+def info():
     return render_template('info.html')
 
 @app.route("/")
@@ -68,3 +85,7 @@ def favicon():
 @app.route("/about_us")
 def aboutUs():
     return render_template('about_us.html')
+
+@app.route('/results')
+def results():
+    return render_template('results.html')

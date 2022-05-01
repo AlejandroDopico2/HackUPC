@@ -2,7 +2,6 @@
 <html lang="en">
 
   <head>
-2
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -47,10 +46,24 @@
       </div>
 
           <h4 class="mb-3">Real state data</h4>
-          <form id="form" method="POST" enctype="multipart/form-data">
-            <input id="file" type="file" name="images" multiple  class="btn btn-lg btn-secondary" required>
        
-          <form class="needs-validation" novalidate>
+          <form id="form" action="" method="post">
+            <div class="row">
+              <label for="image1">Image 1</label>
+              <input type=" string" class="form-control" id="image1" name="image1" value="">
+            </div>
+            <div class="row">
+              <label for="image2">Image 2</label>
+              <input type=" string" class="form-control" id="image2" name="image2" value="">
+            </div>
+            <div class="row">
+              <label for="image1">Image 3</label>
+              <input type=" string" class="form-control" id="image3" name="image3" value="">
+            </div>
+            <div class="row">
+              <label for="image1">Image 4</label>
+              <input type=" string" class="form-control" id="image4" name="image4" value="">
+            </div>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="bathroom">Number of bathrooms</label>
@@ -86,10 +99,9 @@
             </div>
 
             <div class ="boton">
-                <button href="./results" class="submit-btn" type="submit" style="background-color: grey; border-color: grey" >Continue</button>
+                <button  class="submit-btn" type="submit" style="background-color: grey; border-color: grey" href="results.html" >Continue</button>
             </div>
           </form>
-        </form>
         </div>
 
     <!-- Bootstrap core JavaScript

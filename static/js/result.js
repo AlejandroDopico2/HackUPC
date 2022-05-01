@@ -1,0 +1,1 @@
+document.getElementById("scores").innerHTML = localStorage.scores
